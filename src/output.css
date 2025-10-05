@@ -8,7 +8,7 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-amber-300: oklch(87.9% 0.169 91.605);
-    --color-amber-800: oklch(47.3% 0.137 46.201);
+    --color-amber-500: oklch(76.9% 0.188 70.08);
     --color-blue-50: oklch(97% 0.014 254.604);
     --color-blue-700: oklch(48.8% 0.243 264.376);
     --color-blue-950: oklch(28.2% 0.091 267.935);
@@ -184,9 +184,6 @@
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
   }
-  .mb-10 {
-    margin-bottom: calc(var(--spacing) * 10);
-  }
   .contents {
     display: contents;
   }
@@ -202,6 +199,9 @@
   .h-3\/4 {
     height: calc(3/4 * 100%);
   }
+  .h-3\/5 {
+    height: calc(3/5 * 100%);
+  }
   .h-screen {
     height: 100vh;
   }
@@ -211,6 +211,12 @@
   .w-1\/4 {
     width: calc(1/4 * 100%);
   }
+  .w-4 {
+    width: calc(var(--spacing) * 4);
+  }
+  .w-4\/5 {
+    width: calc(4/5 * 100%);
+  }
   .border-collapse {
     border-collapse: collapse;
   }
@@ -219,6 +225,9 @@
   }
   .resize {
     resize: both;
+  }
+  .flex-wrap {
+    flex-wrap: wrap;
   }
   .items-center {
     align-items: center;
@@ -243,13 +252,6 @@
       margin-block-end: calc(calc(var(--spacing) * 10) * calc(1 - var(--tw-space-y-reverse)));
     }
   }
-  .space-x-5 {
-    :where(& > :not(:last-child)) {
-      --tw-space-x-reverse: 0;
-      margin-inline-start: calc(calc(var(--spacing) * 5) * var(--tw-space-x-reverse));
-      margin-inline-end: calc(calc(var(--spacing) * 5) * calc(1 - var(--tw-space-x-reverse)));
-    }
-  }
   .rounded-2xl {
     border-radius: var(--radius-2xl);
   }
@@ -269,9 +271,6 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .bg-amber-300 {
-    background-color: var(--color-amber-300);
-  }
   .bg-blue-50 {
     background-color: var(--color-blue-50);
   }
@@ -284,8 +283,8 @@
   .bg-\[url\(\'\/images\/pattern-background-desktop\.svg\'\)\] {
     background-image: url('/images/pattern-background-desktop.svg');
   }
-  .bg-cover {
-    background-size: cover;
+  .bg-\[url\(\'images\/pattern-background-mobile\.svg\'\)\] {
+    background-image: url('images/pattern-background-mobile.svg');
   }
   .bg-no-repeat {
     background-repeat: no-repeat;
@@ -336,13 +335,53 @@
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
   }
+  .sm\:w-4\/5 {
+    @media (width >= 40rem) {
+      width: calc(4/5 * 100%);
+    }
+  }
+  .sm\:bg-amber-500 {
+    @media (width >= 40rem) {
+      background-color: var(--color-amber-500);
+    }
+  }
+  .sm\:bg-blue-50 {
+    @media (width >= 40rem) {
+      background-color: var(--color-blue-50);
+    }
+  }
+  .sm\:bg-\[url\(\'images\/pattern-background-mobile\.svg\'\)\] {
+    @media (width >= 40rem) {
+      background-image: url('images/pattern-background-mobile.svg');
+    }
+  }
+  .sm\:bg-\[url\(\)\] {
+    @media (width >= 40rem) {
+      background-image: url();
+    }
+  }
+  .md\:bg-amber-500 {
+    @media (width >= 48rem) {
+      background-color: var(--color-amber-500);
+    }
+  }
+  .lg\:w-1\/4 {
+    @media (width >= 64rem) {
+      width: calc(1/4 * 100%);
+    }
+  }
+  .lg\:bg-blue-50 {
+    @media (width >= 64rem) {
+      background-color: var(--color-blue-50);
+    }
+  }
+  .lg\:bg-\[url\(\'\/images\/pattern-background-desktop\.svg\'\)\] {
+    @media (width >= 64rem) {
+      background-image: url('/images/pattern-background-desktop.svg');
+    }
+  }
 }
 @property --tw-space-y-reverse {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
-@property --tw-space-x-reverse {
   syntax: "*";
   inherits: false;
   initial-value: 0;
@@ -365,7 +404,6 @@
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
       --tw-space-y-reverse: 0;
-      --tw-space-x-reverse: 0;
       --tw-border-style: solid;
       --tw-font-weight: initial;
       --tw-outline-style: solid;
