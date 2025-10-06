@@ -7,7 +7,6 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-amber-300: oklch(87.9% 0.169 91.605);
     --color-amber-500: oklch(76.9% 0.188 70.08);
     --color-blue-50: oklch(97% 0.014 254.604);
     --color-blue-700: oklch(48.8% 0.243 264.376);
@@ -199,17 +198,8 @@
   .h-3\/4 {
     height: calc(3/4 * 100%);
   }
-  .h-3\/5 {
-    height: calc(3/5 * 100%);
-  }
   .h-screen {
     height: 100vh;
-  }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
-  }
-  .w-1\/4 {
-    width: calc(1/4 * 100%);
   }
   .w-4 {
     width: calc(var(--spacing) * 4);
@@ -280,9 +270,6 @@
   .bg-white {
     background-color: var(--color-white);
   }
-  .bg-\[url\(\'\/images\/pattern-background-desktop\.svg\'\)\] {
-    background-image: url('/images/pattern-background-desktop.svg');
-  }
   .bg-\[url\(\'images\/pattern-background-mobile\.svg\'\)\] {
     background-image: url('images/pattern-background-mobile.svg');
   }
@@ -335,34 +322,49 @@
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
   }
-  .sm\:w-4\/5 {
+  .sm\:w-3\/5 {
     @media (width >= 40rem) {
+      width: calc(3/5 * 100%);
+    }
+  }
+  .md\:h-2\/4 {
+    @media (width >= 48rem) {
+      height: calc(2/4 * 100%);
+    }
+  }
+  .md\:h-3\/5 {
+    @media (width >= 48rem) {
+      height: calc(3/5 * 100%);
+    }
+  }
+  .md\:w-1\.5 {
+    @media (width >= 48rem) {
+      width: calc(var(--spacing) * 1.5);
+    }
+  }
+  .md\:w-2\/4 {
+    @media (width >= 48rem) {
+      width: calc(2/4 * 100%);
+    }
+  }
+  .md\:w-3\/5 {
+    @media (width >= 48rem) {
+      width: calc(3/5 * 100%);
+    }
+  }
+  .md\:w-4\/5 {
+    @media (width >= 48rem) {
       width: calc(4/5 * 100%);
     }
   }
-  .sm\:bg-amber-500 {
-    @media (width >= 40rem) {
-      background-color: var(--color-amber-500);
-    }
-  }
-  .sm\:bg-blue-50 {
-    @media (width >= 40rem) {
-      background-color: var(--color-blue-50);
-    }
-  }
-  .sm\:bg-\[url\(\'images\/pattern-background-mobile\.svg\'\)\] {
-    @media (width >= 40rem) {
-      background-image: url('images/pattern-background-mobile.svg');
-    }
-  }
-  .sm\:bg-\[url\(\)\] {
-    @media (width >= 40rem) {
-      background-image: url();
-    }
-  }
-  .md\:bg-amber-500 {
+  .md\:w-80 {
     @media (width >= 48rem) {
-      background-color: var(--color-amber-500);
+      width: calc(var(--spacing) * 80);
+    }
+  }
+  .md\:w-auto {
+    @media (width >= 48rem) {
+      width: auto;
     }
   }
   .lg\:w-1\/4 {
